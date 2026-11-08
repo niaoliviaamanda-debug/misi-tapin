@@ -435,6 +435,22 @@ svg.kupu{filter:drop-shadow(0 4px 3px rgba(0,0,0,.3));overflow:visible}
 /* huruf kecil di halaman awal tetap diam, sesuai permintaan tanpa animasi */
 .hh{animation:none !important;will-change:auto}
 
+/* fade in up: judul, papan judul, dan tulisan 5 misi (sekali jalan, lalu diam) */
+@keyframes fadeInUp{from{opacity:0;transform:translateY(36px)}to{opacity:1;transform:none}}
+.papan-judul,.ekor{animation:fadeInUp .9s cubic-bezier(.2,.8,.3,1) .1s backwards}
+#judul{animation:fadeInUp 1s cubic-bezier(.2,.8,.3,1) .35s backwards}
+.tagline{animation:fadeInUp .9s cubic-bezier(.2,.8,.3,1) 1.2s backwards}
+
+/* kupu-kupu melayang pelan di dekat bunga (seperti awan, tetapi hanya di area kecil) */
+@keyframes kupuA{0%,100%{translate:0 0;rotate:0deg}25%{translate:22px -16px;rotate:4deg}50%{translate:40px 4px;rotate:-3deg}75%{translate:16px 18px;rotate:3deg}}
+@keyframes kupuB{0%,100%{translate:0 0;rotate:0deg}30%{translate:-20px -14px;rotate:-4deg}60%{translate:-34px 8px;rotate:3deg}80%{translate:-12px 16px;rotate:-2deg}}
+@keyframes kupuC{0%,100%{translate:0 0;rotate:0deg}33%{translate:-18px -20px;rotate:3deg}66%{translate:12px -8px;rotate:-4deg}}
+svg.kupu:nth-of-type(n){animation-duration:9s;animation-timing-function:ease-in-out;animation-iteration-count:infinite}
+svg.kupu.k1{animation-name:kupuA;animation-duration:9s}
+svg.kupu.k2{animation-name:kupuB;animation-duration:11s;animation-delay:-3s}
+svg.kupu.k3{animation-name:kupuC;animation-duration:8s;animation-delay:-5s}
+@media (prefers-reduced-motion:reduce){svg.kupu,#judul,.tagline,.papan-judul,.ekor{animation:none !important}}
+
 </style>
 </head>
 <body>
@@ -480,7 +496,7 @@ svg.kupu{filter:drop-shadow(0 4px 3px rgba(0,0,0,.3));overflow:visible}
     <svg class="hias" style="left:262px;top:58px;width:34px;height:34px;transform:rotate(10deg)" viewBox="0 0 24 24"><polygon points="12,1.5 15,9 22.5,9 16.5,13.8 18.7,21.5 12,17 5.3,21.5 7.5,13.8 1.5,9 9,9" fill="#fde047" stroke="#b45309" stroke-width="1.6" stroke-linejoin="round"/></svg>
     <svg class="hias" style="left:1330px;top:70px;width:38px;height:38px;transform:rotate(-10deg)" viewBox="0 0 24 24"><polygon points="12,1.5 15,9 22.5,9 16.5,13.8 18.7,21.5 12,17 5.3,21.5 7.5,13.8 1.5,9 9,9" fill="#fde047" stroke="#b45309" stroke-width="1.6" stroke-linejoin="round"/></svg>
     <svg class="hias" style="left:1452px;top:152px;width:44px;height:44px;transform:rotate(12deg)" viewBox="0 0 24 24"><polygon points="12,1.5 15,9 22.5,9 16.5,13.8 18.7,21.5 12,17 5.3,21.5 7.5,13.8 1.5,9 9,9" fill="#fde047" stroke="#b45309" stroke-width="1.6" stroke-linejoin="round"/></svg>
-    <svg class="hias kupu" style="left:168px;top:660px;width:88px;transform:perspective(420px) rotateX(32deg) rotate(-14deg)" viewBox="0 0 60 52">
+    <svg class="hias kupu k1" style="left:168px;top:660px;width:88px;transform:perspective(420px) rotateX(32deg) rotate(-14deg)" viewBox="0 0 60 52">
       <defs>
         <radialGradient id="u1" cx="30%" cy="30%" r="85%"><stop offset="0" stop-color="#ffd9a0"/><stop offset=".55" stop-color="#fb923c"/><stop offset="1" stop-color="#9a3412"/></radialGradient>
         <radialGradient id="l1" cx="35%" cy="25%" r="90%"><stop offset="0" stop-color="#fff2a8"/><stop offset=".6" stop-color="#facc15"/><stop offset="1" stop-color="#a16207"/></radialGradient>
@@ -508,7 +524,7 @@ svg.kupu{filter:drop-shadow(0 4px 3px rgba(0,0,0,.3));overflow:visible}
       <circle cx="30" cy="12" r="3.6" fill="url(#b1)"/>
       <circle cx="29" cy="11" r="1.1" fill="#fff" opacity=".6"/>
     </svg>
-    <svg class="hias kupu" style="left:246px;top:758px;width:74px;transform:perspective(420px) rotateX(30deg) rotate(12deg)" viewBox="0 0 60 52">
+    <svg class="hias kupu k2" style="left:246px;top:758px;width:74px;transform:perspective(420px) rotateX(30deg) rotate(12deg)" viewBox="0 0 60 52">
       <defs>
         <radialGradient id="u2" cx="30%" cy="30%" r="85%"><stop offset="0" stop-color="#ffd1ea"/><stop offset=".55" stop-color="#f472b6"/><stop offset="1" stop-color="#9d174d"/></radialGradient>
         <radialGradient id="l2" cx="35%" cy="25%" r="90%"><stop offset="0" stop-color="#e9d5ff"/><stop offset=".6" stop-color="#c084fc"/><stop offset="1" stop-color="#6b21a8"/></radialGradient>
@@ -536,7 +552,7 @@ svg.kupu{filter:drop-shadow(0 4px 3px rgba(0,0,0,.3));overflow:visible}
       <circle cx="30" cy="12" r="3.6" fill="url(#b2)"/>
       <circle cx="29" cy="11" r="1.1" fill="#fff" opacity=".6"/>
     </svg>
-    <svg class="hias kupu" style="left:1448px;top:716px;width:80px;transform:perspective(420px) rotateX(30deg) rotate(-10deg)" viewBox="0 0 60 52">
+    <svg class="hias kupu k3" style="left:1478px;top:772px;width:76px;transform:perspective(420px) rotateX(30deg) rotate(-10deg)" viewBox="0 0 60 52">
       <defs>
         <radialGradient id="u3" cx="30%" cy="30%" r="85%"><stop offset="0" stop-color="#d6ecff"/><stop offset=".55" stop-color="#60a5fa"/><stop offset="1" stop-color="#1e40af"/></radialGradient>
         <radialGradient id="l3" cx="35%" cy="25%" r="90%"><stop offset="0" stop-color="#cffafe"/><stop offset=".6" stop-color="#22d3ee"/><stop offset="1" stop-color="#0e7490"/></radialGradient>
@@ -564,7 +580,6 @@ svg.kupu{filter:drop-shadow(0 4px 3px rgba(0,0,0,.3));overflow:visible}
       <circle cx="30" cy="12" r="3.6" fill="url(#b3)"/>
       <circle cx="29" cy="11" r="1.1" fill="#fff" opacity=".6"/>
     </svg>
-    <div class="hias tagline">★ 5 misi seru menantimu ★</div>
 
     <h1 id="judul" aria-label="MISI TAPIN"></h1>
 
@@ -1102,7 +1117,6 @@ svg.kupu{filter:drop-shadow(0 4px 3px rgba(0,0,0,.3));overflow:visible}
       el.setAttribute('aria-label', t);
     }
     pecah($('#pil'), 0.5);
-    pecah($('.tagline'), 0.8);
   })();
   $('#btn-mulai').addEventListener('click', function () { suara.klik(); ukuranGuru('sapa'); pose('melambai'); pindah('sapa'); });
 
