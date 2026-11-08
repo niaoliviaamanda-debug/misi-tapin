@@ -57,7 +57,7 @@ button{font-family:var(--font);cursor:pointer;border:0;padding:0}
 .h{position:relative;isolation:isolate;display:inline-block;font-size:var(--fs);margin:0 13px;line-height:1.05;
   color:#fff;-webkit-text-stroke:14px #fff;
   transform:translateY(var(--dy)) rotate(var(--rot));
-  animation:jatuh .9s cubic-bezier(.3,1.6,.5,1) backwards,ayun 2.8s ease-in-out 1.4s infinite;pointer-events:auto;cursor:pointer}
+  animation:jatuh .9s cubic-bezier(.3,1.6,.5,1) backwards,riak 5s ease-in-out 1.4s infinite;pointer-events:auto;cursor:pointer;will-change:transform;backface-visibility:hidden;-webkit-font-smoothing:antialiased}
 .h::before{content:attr(data-c);position:absolute;left:0;top:0;z-index:-1;color:#6b2308;-webkit-text-stroke:30px #6b2308;
   text-shadow:0 12px 0 #4a1805,0 24px 26px rgba(0,0,0,.4)}
 .h::after{content:attr(data-c);position:absolute;left:0;top:0;z-index:1;background:linear-gradient(180deg,var(--c1) 6%,var(--c2) 94%);
@@ -279,6 +279,7 @@ button{font-family:var(--font);cursor:pointer;border:0;padding:0}
 
 /* ---------- animasi ---------- */
 @keyframes jatuh{0%{transform:translateY(-340px) rotate(-14deg);opacity:0}60%{opacity:1}100%{transform:translateY(var(--dy)) rotate(var(--rot));opacity:1}}
+@keyframes riak{0%,28%,100%{transform:translateY(var(--dy)) rotate(var(--rot))}14%{transform:translateY(calc(var(--dy) - 20px)) rotate(var(--rot))}}
 @keyframes ayun{0%,100%{transform:translateY(var(--dy)) rotate(var(--rot))}50%{transform:translateY(calc(var(--dy) - 8px)) rotate(calc(var(--rot) * -1))}}
 @keyframes lompatHuruf{0%,100%{transform:translateY(var(--dy)) rotate(var(--rot))}40%{transform:translateY(-34px) scale(1.12) rotate(-4deg)}}
 @keyframes fadeNaik{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
@@ -383,6 +384,57 @@ body.kurang .awan,body.kurang .kilau{animation:none !important}
 #contoh .rumus.kecil2{font-size:17px;flex:none}
 #peraga-a{zoom:.8}
 
+/* hiasan layar pembuka (diam, tanpa animasi) */
+.hias{position:absolute;pointer-events:none}
+.sim{border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:700;border:6px solid #fff;
+  background:radial-gradient(circle at 32% 28%,#fff8 0,transparent 38%),linear-gradient(160deg,var(--a),var(--b));
+  box-shadow:0 8px 0 rgba(0,0,0,.22),0 12px 18px rgba(0,0,0,.18)}
+.sim span{line-height:1;text-shadow:0 3px 0 rgba(0,0,0,.25);margin-top:-4px}
+svg.hias{filter:drop-shadow(0 3px 2px rgba(120,53,15,.45))}
+svg.spk{filter:drop-shadow(0 0 6px #fde047)}
+.tagline{left:1236px;top:806px;width:324px;padding:10px 0;text-align:center;font-size:25px;font-weight:700;color:#7c2d12;
+  background:linear-gradient(180deg,#fff7e0,#ffe2a8);border:5px solid #f59e0b;border-radius:999px;box-shadow:0 6px 0 rgba(146,64,14,.4)}
+
+/* judul diam dengan papan pita */
+.h,.h.lompat{animation:none !important;will-change:auto;cursor:default}
+.papan-judul{left:240px;top:30px;width:1120px;height:170px;border-radius:34px;background:linear-gradient(180deg,#fffaf0,#ffe7b0);
+  border:7px solid #f59e0b;box-shadow:0 10px 0 #b45309,0 20px 26px rgba(0,0,0,.28)}
+.papan-judul::before{content:"";position:absolute;inset:9px;border:3px dashed rgba(217,119,6,.55);border-radius:24px}
+.ekor{top:70px;width:140px;height:128px;background:linear-gradient(180deg,#fb923c,#c2410c);box-shadow:0 8px 0 rgba(0,0,0,.2)}
+.ekor-kiri{left:150px;clip-path:polygon(0 0,100% 0,100% 100%,0 100%,30% 50%)}
+.ekor-kanan{left:1310px;clip-path:polygon(0 0,100% 0,70% 50%,100% 100%,0 100%)}
+.tagline{left:372px;top:212px;width:500px;padding:5px 0;font-size:25px;border-radius:999px}
+#pita{top:272px}
+#pil{top:424px}
+
+.papan-judul{top:8px;height:168px;box-shadow:0 8px 0 #b45309,0 14px 18px rgba(0,0,0,.25)}
+.ekor{top:52px;height:122px}
+.tagline{top:204px}
+#pita{top:268px}
+#pil{top:420px}
+
+/* papan judul semi transparan */
+.papan-judul{background:linear-gradient(180deg,rgba(255,250,240,.55),rgba(255,231,176,.5));border-color:rgba(245,158,11,.85);box-shadow:0 8px 0 rgba(180,83,9,.55),0 14px 18px rgba(0,0,0,.18)}
+.papan-judul::before{border-color:rgba(217,119,6,.5)}
+.ekor{opacity:.8}
+svg.burung{filter:drop-shadow(0 2px 1px rgba(255,255,255,.7))}
+svg.kupu{filter:drop-shadow(0 3px 2px rgba(0,0,0,.3))}
+
+/* tulisan hidup di halaman awal */
+.tagline{background:none !important;border:0 !important;box-shadow:none !important;border-radius:0;padding:0;width:500px;height:50px;left:372px;top:200px;
+  text-align:center;font-size:36px;line-height:50px;white-space:nowrap}
+.tagline .hh{-webkit-text-stroke:8px #6b2308;paint-order:stroke fill;color:var(--cc)}
+#pil .hh{color:#fff}
+.hh{display:inline-block;white-space:pre;will-change:transform;
+  animation:jatuhKecil .6s cubic-bezier(.3,1.6,.5,1) backwards,riakKecil 5s ease-in-out 1.8s infinite}
+@keyframes jatuhKecil{0%{transform:translateY(-70px);opacity:0}60%{opacity:1}100%{transform:none;opacity:1}}
+@keyframes riakKecil{0%,30%,100%{transform:none}15%{transform:translateY(-9px)}}
+@media (prefers-reduced-motion:reduce){.hh{animation:none !important}}
+
+svg.kupu{filter:drop-shadow(0 4px 3px rgba(0,0,0,.3));overflow:visible}
+/* huruf kecil di halaman awal tetap diam, sesuai permintaan tanpa animasi */
+.hh{animation:none !important;will-change:auto}
+
 </style>
 </head>
 <body>
@@ -405,6 +457,114 @@ body.kurang .awan,body.kurang .kilau{animation:none !important}
     <div class="kilau" style="left:1000px;top:130px;animation-delay:1.1s"></div>
     <div class="kilau" style="left:880px;top:290px;animation-delay:1.5s"></div>
     <div class="kilau" style="left:1135px;top:310px;animation-delay:.3s"></div>
+
+    <!-- hiasan diam (tanpa animasi) -->
+    <div class="hias sim" style="left:50px;top:236px;width:104px;height:104px;font-size:83px;--a:#fb7185;--b:#be123c;transform:rotate(-10deg)"><span>÷</span></div>
+    <div class="hias sim" style="left:186px;top:404px;width:86px;height:86px;font-size:69px;--a:#fbbf24;--b:#b45309;transform:rotate(8deg)"><span>+</span></div>
+    <div class="hias sim" style="left:66px;top:560px;width:92px;height:92px;font-size:74px;--a:#4ade80;--b:#15803d;transform:rotate(-6deg)"><span>−</span></div>
+    <div class="hias sim" style="left:1326px;top:232px;width:100px;height:100px;font-size:81px;--a:#60a5fa;--b:#1d4ed8;transform:rotate(9deg)"><span>×</span></div>
+    <div class="hias sim" style="left:1438px;top:384px;width:84px;height:84px;font-size:68px;--a:#c084fc;--b:#7e22ce;transform:rotate(-8deg)"><span>=</span></div>
+    <div class="hias sim" style="left:1296px;top:526px;width:92px;height:92px;font-size:74px;--a:#fb923c;--b:#c2410c;transform:rotate(6deg)"><span>÷</span></div>
+    <div class="hias sim" style="left:1424px;top:652px;width:78px;height:78px;font-size:62px;--a:#f472b6;--b:#be185d;transform:rotate(-9deg)"><span>+</span></div>
+    <svg class="hias spk" style="left:862px;top:176px;width:34px;height:34px" viewBox="0 0 24 24"><path d="M12 0C13 8 16 11 24 12C16 13 13 16 12 24C11 16 8 13 0 12C8 11 11 8 12 0Z" fill="#fffbe0"/></svg>
+    <svg class="hias spk" style="left:1136px;top:182px;width:30px;height:30px" viewBox="0 0 24 24"><path d="M12 0C13 8 16 11 24 12C16 13 13 16 12 24C11 16 8 13 0 12C8 11 11 8 12 0Z" fill="#fffbe0"/></svg>
+    <svg class="hias spk" style="left:1152px;top:338px;width:26px;height:26px" viewBox="0 0 24 24"><path d="M12 0C13 8 16 11 24 12C16 13 13 16 12 24C11 16 8 13 0 12C8 11 11 8 12 0Z" fill="#fffbe0"/></svg>
+
+    <svg class="hias burung" style="left:1190px;top:214px;width:76px;transform:rotate(-6deg)" viewBox="0 0 40 18"><path d="M2 14 Q10 1 20 12 Q30 1 38 14" fill="none" stroke="#1e3a8a" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <svg class="hias burung" style="left:1262px;top:262px;width:54px;transform:rotate(8deg)" viewBox="0 0 40 18"><path d="M2 14 Q10 1 20 12 Q30 1 38 14" fill="none" stroke="#1e3a8a" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <svg class="hias burung" style="left:1150px;top:278px;width:42px;transform:rotate(-10deg)" viewBox="0 0 40 18"><path d="M2 14 Q10 1 20 12 Q30 1 38 14" fill="none" stroke="#1e3a8a" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <svg class="hias burung" style="left:1430px;top:262px;width:50px;transform:rotate(4deg)" viewBox="0 0 40 18"><path d="M2 14 Q10 1 20 12 Q30 1 38 14" fill="none" stroke="#1e3a8a" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <div class="hias ekor ekor-kiri"></div><div class="hias ekor ekor-kanan"></div>
+    <div class="hias papan-judul"></div>
+    <svg class="hias" style="left:150px;top:112px;width:40px;height:40px;transform:rotate(-14deg)" viewBox="0 0 24 24"><polygon points="12,1.5 15,9 22.5,9 16.5,13.8 18.7,21.5 12,17 5.3,21.5 7.5,13.8 1.5,9 9,9" fill="#fde047" stroke="#b45309" stroke-width="1.6" stroke-linejoin="round"/></svg>
+    <svg class="hias" style="left:262px;top:58px;width:34px;height:34px;transform:rotate(10deg)" viewBox="0 0 24 24"><polygon points="12,1.5 15,9 22.5,9 16.5,13.8 18.7,21.5 12,17 5.3,21.5 7.5,13.8 1.5,9 9,9" fill="#fde047" stroke="#b45309" stroke-width="1.6" stroke-linejoin="round"/></svg>
+    <svg class="hias" style="left:1330px;top:70px;width:38px;height:38px;transform:rotate(-10deg)" viewBox="0 0 24 24"><polygon points="12,1.5 15,9 22.5,9 16.5,13.8 18.7,21.5 12,17 5.3,21.5 7.5,13.8 1.5,9 9,9" fill="#fde047" stroke="#b45309" stroke-width="1.6" stroke-linejoin="round"/></svg>
+    <svg class="hias" style="left:1452px;top:152px;width:44px;height:44px;transform:rotate(12deg)" viewBox="0 0 24 24"><polygon points="12,1.5 15,9 22.5,9 16.5,13.8 18.7,21.5 12,17 5.3,21.5 7.5,13.8 1.5,9 9,9" fill="#fde047" stroke="#b45309" stroke-width="1.6" stroke-linejoin="round"/></svg>
+    <svg class="hias kupu" style="left:168px;top:660px;width:88px;transform:perspective(420px) rotateX(32deg) rotate(-14deg)" viewBox="0 0 60 52">
+      <defs>
+        <radialGradient id="u1" cx="30%" cy="30%" r="85%"><stop offset="0" stop-color="#ffd9a0"/><stop offset=".55" stop-color="#fb923c"/><stop offset="1" stop-color="#9a3412"/></radialGradient>
+        <radialGradient id="l1" cx="35%" cy="25%" r="90%"><stop offset="0" stop-color="#fff2a8"/><stop offset=".6" stop-color="#facc15"/><stop offset="1" stop-color="#a16207"/></radialGradient>
+        <linearGradient id="s1" x1="1" y1="0" x2="0" y2="0"><stop offset="0" stop-color="#000" stop-opacity=".38"/><stop offset=".45" stop-color="#000" stop-opacity="0"/></linearGradient>
+        <linearGradient id="b1" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#8a5a2b"/><stop offset=".4" stop-color="#4a2c0f"/><stop offset="1" stop-color="#2a1608"/></linearGradient>
+        <radialGradient id="p1" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity=".25"/></radialGradient>
+        <g id="w1">
+          <path d="M29 24 C22 1 3 -2 2 14 C1 25 14 31 29 28 Z" fill="url(#u1)" stroke="#9a3412" stroke-width="1.2" stroke-linejoin="round"/>
+          <path d="M29 28 C17 29 7 33 10 43 C13 51 26 46 29 34 Z" fill="url(#l1)" stroke="#a16207" stroke-width="1.2" stroke-linejoin="round"/>
+          <path d="M29 24 C22 1 3 -2 2 14 C1 25 14 31 29 28 Z" fill="url(#s1)"/>
+          <path d="M29 28 C17 29 7 33 10 43 C13 51 26 46 29 34 Z" fill="url(#s1)"/>
+          <path d="M28 25 L10 9 M28 26 L6 18 M28 27 L9 26 M28 30 L13 40" stroke="#fff" stroke-opacity=".38" stroke-width=".8" fill="none" stroke-linecap="round"/>
+          <ellipse cx="11" cy="12" rx="3.6" ry="2.8" fill="url(#p1)" transform="rotate(-24 11 12)"/>
+          <circle cx="16" cy="38" r="2.4" fill="url(#p1)"/>
+          <path d="M6 7 C10 3 16 4 20 8" stroke="#fff" stroke-opacity=".6" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+        </g>
+      </defs>
+      <ellipse cx="30" cy="49.5" rx="17" ry="2.6" fill="#000" opacity=".18"/>
+      <use href="#w1"/>
+      <use href="#w1" transform="translate(60 0) scale(-1 1)"/>
+      <path d="M29 12 C27 6 23 3 20 2 M31 12 C33 6 37 3 40 2" stroke="#3a2209" stroke-width="1.1" fill="none" stroke-linecap="round"/>
+      <circle cx="20" cy="2" r="1.7" fill="#3a2209"/><circle cx="40" cy="2" r="1.7" fill="#3a2209"/>
+      <ellipse cx="30" cy="27" rx="3" ry="14" fill="url(#b1)"/>
+      <ellipse cx="29.2" cy="21" rx=".9" ry="6" fill="#fff" opacity=".35"/>
+      <circle cx="30" cy="12" r="3.6" fill="url(#b1)"/>
+      <circle cx="29" cy="11" r="1.1" fill="#fff" opacity=".6"/>
+    </svg>
+    <svg class="hias kupu" style="left:246px;top:758px;width:74px;transform:perspective(420px) rotateX(30deg) rotate(12deg)" viewBox="0 0 60 52">
+      <defs>
+        <radialGradient id="u2" cx="30%" cy="30%" r="85%"><stop offset="0" stop-color="#ffd1ea"/><stop offset=".55" stop-color="#f472b6"/><stop offset="1" stop-color="#9d174d"/></radialGradient>
+        <radialGradient id="l2" cx="35%" cy="25%" r="90%"><stop offset="0" stop-color="#e9d5ff"/><stop offset=".6" stop-color="#c084fc"/><stop offset="1" stop-color="#6b21a8"/></radialGradient>
+        <linearGradient id="s2" x1="1" y1="0" x2="0" y2="0"><stop offset="0" stop-color="#000" stop-opacity=".38"/><stop offset=".45" stop-color="#000" stop-opacity="0"/></linearGradient>
+        <linearGradient id="b2" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#8a5a2b"/><stop offset=".4" stop-color="#4a2c0f"/><stop offset="1" stop-color="#2a1608"/></linearGradient>
+        <radialGradient id="p2" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity=".25"/></radialGradient>
+        <g id="w2">
+          <path d="M29 24 C22 1 3 -2 2 14 C1 25 14 31 29 28 Z" fill="url(#u2)" stroke="#9d174d" stroke-width="1.2" stroke-linejoin="round"/>
+          <path d="M29 28 C17 29 7 33 10 43 C13 51 26 46 29 34 Z" fill="url(#l2)" stroke="#6b21a8" stroke-width="1.2" stroke-linejoin="round"/>
+          <path d="M29 24 C22 1 3 -2 2 14 C1 25 14 31 29 28 Z" fill="url(#s2)"/>
+          <path d="M29 28 C17 29 7 33 10 43 C13 51 26 46 29 34 Z" fill="url(#s2)"/>
+          <path d="M28 25 L10 9 M28 26 L6 18 M28 27 L9 26 M28 30 L13 40" stroke="#fff" stroke-opacity=".38" stroke-width=".8" fill="none" stroke-linecap="round"/>
+          <ellipse cx="11" cy="12" rx="3.6" ry="2.8" fill="url(#p2)" transform="rotate(-24 11 12)"/>
+          <circle cx="16" cy="38" r="2.4" fill="url(#p2)"/>
+          <path d="M6 7 C10 3 16 4 20 8" stroke="#fff" stroke-opacity=".6" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+        </g>
+      </defs>
+      <ellipse cx="30" cy="49.5" rx="17" ry="2.6" fill="#000" opacity=".18"/>
+      <use href="#w2"/>
+      <use href="#w2" transform="translate(60 0) scale(-1 1)"/>
+      <path d="M29 12 C27 6 23 3 20 2 M31 12 C33 6 37 3 40 2" stroke="#3a2209" stroke-width="1.1" fill="none" stroke-linecap="round"/>
+      <circle cx="20" cy="2" r="1.7" fill="#3a2209"/><circle cx="40" cy="2" r="1.7" fill="#3a2209"/>
+      <ellipse cx="30" cy="27" rx="3" ry="14" fill="url(#b2)"/>
+      <ellipse cx="29.2" cy="21" rx=".9" ry="6" fill="#fff" opacity=".35"/>
+      <circle cx="30" cy="12" r="3.6" fill="url(#b2)"/>
+      <circle cx="29" cy="11" r="1.1" fill="#fff" opacity=".6"/>
+    </svg>
+    <svg class="hias kupu" style="left:1448px;top:716px;width:80px;transform:perspective(420px) rotateX(30deg) rotate(-10deg)" viewBox="0 0 60 52">
+      <defs>
+        <radialGradient id="u3" cx="30%" cy="30%" r="85%"><stop offset="0" stop-color="#d6ecff"/><stop offset=".55" stop-color="#60a5fa"/><stop offset="1" stop-color="#1e40af"/></radialGradient>
+        <radialGradient id="l3" cx="35%" cy="25%" r="90%"><stop offset="0" stop-color="#cffafe"/><stop offset=".6" stop-color="#22d3ee"/><stop offset="1" stop-color="#0e7490"/></radialGradient>
+        <linearGradient id="s3" x1="1" y1="0" x2="0" y2="0"><stop offset="0" stop-color="#000" stop-opacity=".38"/><stop offset=".45" stop-color="#000" stop-opacity="0"/></linearGradient>
+        <linearGradient id="b3" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#8a5a2b"/><stop offset=".4" stop-color="#4a2c0f"/><stop offset="1" stop-color="#2a1608"/></linearGradient>
+        <radialGradient id="p3" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity=".25"/></radialGradient>
+        <g id="w3">
+          <path d="M29 24 C22 1 3 -2 2 14 C1 25 14 31 29 28 Z" fill="url(#u3)" stroke="#1e40af" stroke-width="1.2" stroke-linejoin="round"/>
+          <path d="M29 28 C17 29 7 33 10 43 C13 51 26 46 29 34 Z" fill="url(#l3)" stroke="#0e7490" stroke-width="1.2" stroke-linejoin="round"/>
+          <path d="M29 24 C22 1 3 -2 2 14 C1 25 14 31 29 28 Z" fill="url(#s3)"/>
+          <path d="M29 28 C17 29 7 33 10 43 C13 51 26 46 29 34 Z" fill="url(#s3)"/>
+          <path d="M28 25 L10 9 M28 26 L6 18 M28 27 L9 26 M28 30 L13 40" stroke="#fff" stroke-opacity=".38" stroke-width=".8" fill="none" stroke-linecap="round"/>
+          <ellipse cx="11" cy="12" rx="3.6" ry="2.8" fill="url(#p3)" transform="rotate(-24 11 12)"/>
+          <circle cx="16" cy="38" r="2.4" fill="url(#p3)"/>
+          <path d="M6 7 C10 3 16 4 20 8" stroke="#fff" stroke-opacity=".6" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+        </g>
+      </defs>
+      <ellipse cx="30" cy="49.5" rx="17" ry="2.6" fill="#000" opacity=".18"/>
+      <use href="#w3"/>
+      <use href="#w3" transform="translate(60 0) scale(-1 1)"/>
+      <path d="M29 12 C27 6 23 3 20 2 M31 12 C33 6 37 3 40 2" stroke="#3a2209" stroke-width="1.1" fill="none" stroke-linecap="round"/>
+      <circle cx="20" cy="2" r="1.7" fill="#3a2209"/><circle cx="40" cy="2" r="1.7" fill="#3a2209"/>
+      <ellipse cx="30" cy="27" rx="3" ry="14" fill="url(#b3)"/>
+      <ellipse cx="29.2" cy="21" rx=".9" ry="6" fill="#fff" opacity=".35"/>
+      <circle cx="30" cy="12" r="3.6" fill="url(#b3)"/>
+      <circle cx="29" cy="11" r="1.1" fill="#fff" opacity=".6"/>
+    </svg>
+    <div class="hias tagline">★ 5 misi seru menantimu ★</div>
 
     <h1 id="judul" aria-label="MISI TAPIN"></h1>
 
@@ -924,17 +1084,26 @@ body.kurang .awan,body.kurang .kilau{animation:none !important}
       s.style.setProperty('--c1', warna[n][0]); s.style.setProperty('--c2', warna[n][1]);
       s.style.setProperty('--rot', ((n - 4) * 1.7).toFixed(1) + 'deg');
       s.style.setProperty('--dy', (Math.pow(n - 4, 2) * 1.1).toFixed(1) + 'px');
-      s.style.animationDelay = (n * 0.1) + 's, ' + (1.4 + n * 0.12) + 's';
-      s.addEventListener('click', function () { suara.pop(); s.classList.remove('lompat'); void s.offsetWidth; s.classList.add('lompat'); });
+      s.style.animationDelay = (n * 0.1) + 's, ' + (1.6 + n * 0.16) + 's';
       j.appendChild(s); n++;
     });
   })();
-  // sedikit parallax mengikuti kursor (hanya komputer)
-  window.addEventListener('mousemove', function (e) {
-    if (layarKini !== 'pembuka' || KURANG) return;
-    var dx = (e.clientX / window.innerWidth - 0.5) * -16, dy = (e.clientY / window.innerHeight - 0.5) * -10;
-    $('#bg-pembuka').style.transform = 'scale(1.04) translate(' + dx + 'px,' + dy + 'px)';
-  });
+  // tulisan kecil di halaman awal dipecah per huruf supaya bisa jatuh dan bergelombang seperti judul
+  (function pecahTulisan() {
+    var pal = ['#ff9a9a', '#ffc46b', '#fff07a', '#a8f08a', '#8fe3ff', '#8fb4ff', '#c4a0ff', '#ff9fe0'];
+    function pecah(el, delay0) {
+      var t = el.textContent; el.textContent = '';
+      for (var i = 0; i < t.length; i++) {
+        var sp = document.createElement('span'); sp.className = 'hh'; sp.textContent = t.charAt(i); if (t.charAt(i) === ' ') sp.style.width = (el.id === 'pil' ? '0.27em' : '0.42em');
+        sp.style.setProperty('--cc', pal[i % pal.length]);
+        sp.style.animationDelay = (delay0 + i * 0.04) + 's, ' + (1.8 + delay0 + i * 0.07) + 's';
+        el.appendChild(sp);
+      }
+      el.setAttribute('aria-label', t);
+    }
+    pecah($('#pil'), 0.5);
+    pecah($('.tagline'), 0.8);
+  })();
   $('#btn-mulai').addEventListener('click', function () { suara.klik(); ukuranGuru('sapa'); pose('melambai'); pindah('sapa'); });
 
   /* ================= LAYAR 2: SAPAAN ================= */
