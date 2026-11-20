@@ -620,26 +620,26 @@ svg.kupu.k3{animation-name:kupuC;animation-duration:8s;animation-delay:-5s}
       </div>
     </div>
     <div id="contoh">
-      <div class="kartu-contoh"><h3>8 : 2 = 4</h3><p><b>Pengelompokan sama banyak.</b> 8 benda dibagikan satu per satu, bergiliran ke 2 wadah sampai habis.</p><div class="peraga" id="peraga-a"></div></div>
-      <div class="kartu-contoh"><h3>20 : 5 = 4</h3><p><b>Pembagian berulang.</b> Kurangi 5 terus sampai habis, lalu hitung berapa kali.</p><div class="peraga"><span class="rumus">20 − 5 − 5 − 5 − 5 = 0</span><span class="rumus kecil2">4 kali diambil</span></div></div>
+      <div class="kartu-contoh"><h3>15 : 3 = 5</h3><p><b>Pengelompokan sama banyak.</b> 15 benda dibagikan satu per satu, bergiliran ke 3 wadah sampai habis.</p><div class="peraga" id="peraga-a"></div></div>
+      <div class="kartu-contoh"><h3>45 : 5 = 9</h3><p><b>Kebalikan perkalian.</b> Cari bilangan yang dikali 5 hasilnya 45, yaitu 9.</p><div class="peraga"><span class="rumus">5 × 9 = 45</span><span class="rumus kecil2">maka 45 : 5 = 9</span></div></div>
     </div>
     <div class="kartu-contoh" id="contoh-susun">
       <div class="kiri-susun">
-        <h3>96 : 3 = 32</h3>
-        <pre class="susun"><span class="hs">     3 2</span>
-<span> 3 )</span><span class="bar">9 6</span>
-<span class="rs">     9</span>
-<span class="rs">     0 6</span>
-<span class="rs">       6</span>
+        <h3>68 : 4 = 17</h3>
+        <pre class="susun"><span class="hs">     1 7</span>
+<span> 4 )</span><span class="bar">6 8</span>
+<span class="rs">     4</span>
+<span class="rs">     2 8</span>
+<span class="rs">     2 8</span>
 <span class="rs">       0</span></pre>
       </div>
       <div class="kanan-susun">
         <p><b>Pembagian bersusun.</b> Urutannya bagi, kalikan, kurangkan, turunkan.</p>
         <ol class="lgk-susun">
-          <li><b>1</b><span><u>Bagi puluhan:</u> 9 : 3 = 3, tulis 3 di atas angka 9.</span></li>
-          <li><b>2</b><span><u>Kalikan lalu kurangi:</u> 3 × 3 = 9, maka 9 − 9 = 0.</span></li>
-          <li><b>3</b><span><u>Turunkan satuan:</u> angka 6 turun.</span></li>
-          <li><b>4</b><span><u>Bagi lagi:</u> 6 : 3 = 2, tulis 2 di sebelah angka 3. Hasilnya 32.</span></li>
+          <li><b>1</b><span><u>Bagi puluhan:</u> 6 : 4 = 1, tulis 1 di atas angka 6.</span></li>
+          <li><b>2</b><span><u>Kalikan lalu kurangi:</u> 1 × 4 = 4, maka 6 − 4 = 2.</span></li>
+          <li><b>3</b><span><u>Turunkan satuan:</u> angka 8 turun, jadi 28.</span></li>
+          <li><b>4</b><span><u>Bagi lagi:</u> 28 : 4 = 7, tulis 7 di sebelah angka 1. Hasilnya 17.</span></li>
         </ol>
       </div>
     </div>
@@ -805,11 +805,11 @@ var ASET={"guru": "data:image/webp;base64,UklGRrAvAQBXRUJQVlA4WAoAAAAQAAAAfwIAvw
       bahas: '<b>Pengelompokan sama banyak:</b> 8 pensil dibagi ke 2 kelompok, tiap kelompok 4 pensil. Jadi 8 : 2 = 4.'
     },
     {
-      nama: 'Bagi Berulang', tipe: 'buku',
-      soal: 'Ada 20 buku cerita. Setiap rak diisi 5 buku. Tentukan banyak rak yang diperlukan.',
-      langkah: [{ label: 'Banyak rak yang diperlukan ...', jawab: 4, satuan: 'rak' }],
-      petunjuk: 'Ambil lima buku setiap kali, lalu hitung berapa kali kamu mengambil.',
-      bahas: '<b>20 − 5 − 5 − 5 − 5 = 0.</b> Pengurangan dilakukan 4 kali, jadi diperlukan 4 rak.'
+      nama: 'Kebalikan Perkalian', tipe: 'buku',
+      soal: 'Ibu guru memiliki 42 buku. Tiap rak diisi 6 buku. Tentukan banyak rak yang diperlukan.',
+      langkah: [{ label: '6 × ... = 42, banyak rak yang diperlukan ...', jawab: 7, satuan: 'rak' }],
+      petunjuk: 'Pikirkan 6 dikali berapa yang hasilnya 42.',
+      bahas: '<b>6 × 7 = 42, maka 42 : 6 = 7.</b> Jadi diperlukan 7 rak.'
     },
     {
       nama: 'Bagi Bersusun', tipe: 'kertas',
@@ -830,7 +830,7 @@ var ASET={"guru": "data:image/webp;base64,UklGRrAvAQBXRUJQVlA4WAoAAAAQAAAAfwIAvw
   /* ---------- Alur PBL di tiap misi ----------
      Orientasi masalah (guru) lalu Pahami, Rencanakan, Selesaikan, Periksa. Refleksi ada di akhir. */
   LEVEL[0].langkah.push({ label: 'Periksa dengan perkalian: 4 × 2 = ...', jawab: 8, satuan: 'pensil', tahap: 'periksa' });
-  LEVEL[1].langkah.push({ label: 'Periksa dengan perkalian: 4 × 5 = ...', jawab: 20, satuan: 'buku', tahap: 'periksa' });
+  LEVEL[1].langkah.push({ label: 'Periksa dengan perkalian: 7 × 6 = ...', jawab: 42, satuan: 'buku', tahap: 'periksa' });
   LEVEL[2].langkah.push({ label: 'Periksa dengan perkalian: 32 × 3 = ...', jawab: 96, satuan: 'lembar', baris: 'Periksa: <mark>32 × 3</mark> = {A}', tahap: 'periksa' });
   var PBL = [
     { orientasi: 'Anak-anak, ibu guru punya masalah. Delapan pensil harus dibagi adil untuk dua kelompok. Yuk kita selidiki bersama!',
@@ -838,24 +838,63 @@ var ASET={"guru": "data:image/webp;base64,UklGRrAvAQBXRUJQVlA4WAoAAAAQAAAAfwIAvw
       pahami: { tanya: 'Apa yang ditanyakan pada soal?', opsi: ['Banyak pensil yang diterima setiap kelompok', 'Banyak kelompok seluruhnya', 'Jumlah semua pensil'] },
       rencana: { tanya: 'Cara apa yang cocok untuk masalah ini?', opsi: ['Mengelompokkan sama banyak, bagikan satu per satu sampai habis', 'Menjumlahkan 8 dan 2', 'Mengalikan 8 dengan 2'] } },
     { orientasi: 'Buku cerita di kelas harus dirapikan ke rak. Ayo kita cari tahu rak yang diperlukan!',
-      diketahui: '20 buku, tiap rak 5 buku', ditanya: 'banyak rak yang diperlukan',
+      diketahui: '42 buku, tiap rak 6 buku', ditanya: 'banyak rak yang diperlukan',
       pahami: { tanya: 'Apa yang ditanyakan pada soal?', opsi: ['Banyak rak yang diperlukan', 'Banyak buku di setiap rak', 'Jumlah semua buku'] },
-      rencana: { tanya: 'Cara apa yang cocok untuk masalah ini?', opsi: ['Pembagian berulang: kurangi 20 dengan 5 sampai habis', 'Menjumlahkan 20 dan 5', 'Mengalikan 20 dengan 5'] } },
+      rencana: { tanya: 'Cara apa yang cocok untuk masalah ini?', opsi: ['Kebalikan perkalian: 6 dikali berapa hasilnya 42', 'Menjumlahkan 42 dan 6', 'Mengalikan 42 dengan 6'] } },
     { orientasi: 'Ibu guru menyiapkan kertas warna untuk prakarya. Mari cari cara membaginya adil ke tiga kelompok.',
       diketahui: '96 lembar, 3 kelompok', ditanya: 'banyak kertas tiap kelompok',
       pahami: { tanya: 'Apa yang ditanyakan pada soal?', opsi: ['Banyak kertas yang diterima setiap kelompok', 'Banyak seluruh kertas warna', 'Banyak kelompok prakarya'] },
       rencana: { tanya: 'Cara apa yang cocok untuk masalah ini?', opsi: ['Pembagian bersusun: bagi, kalikan, kurangkan, turunkan', 'Menjumlahkan 96 dan 3', 'Mengalikan 96 dengan 3'] } }
   ];
   PBL.forEach(function (p, i) { LEVEL[i].pbl = p; });
+
+  /* ---------- Penjelasan tiap pilihan dan tiap langkah (umpan balik yang menjelaskan alasan) ---------- */
+  var PENJELASAN = [
+    { pahami: ['Betul. Soal meminta banyak pensil yang diterima setiap kelompok. Kata Tentukan menunjukkan hal yang dicari, yaitu bagian tiap kelompok.',
+               'Banyak kelompok sudah tertulis di soal, yaitu 2 kelompok, jadi bukan itu yang dicari. Cari kalimat yang diawali kata Tentukan, lalu pikirkan hal apa yang belum diketahui.',
+               'Jumlah semua pensil sudah tertulis di soal, yaitu 8 pensil, jadi bukan itu yang dicari. Cari kalimat yang diawali kata Tentukan, lalu pikirkan hal apa yang belum diketahui.'],
+      rencana: ['Betul. Pensil dibagikan sama banyak ke 2 kelompok, jadi caranya dibagikan satu per satu secara bergiliran sampai habis.',
+                'Menjumlahkan 8 dan 2 menghasilkan 10, padahal pensil tidak bertambah dan tidak digabung. Pikirkan lagi apa yang dilakukan ibu guru pada pensil itu.',
+                'Mengalikan 8 dengan 2 menghasilkan 16, lebih banyak dari pensil yang ada. Padahal pensil tidak digandakan. Pikirkan lagi apa yang dilakukan ibu guru pada pensil itu.'] },
+    { pahami: ['Betul. Soal menanyakan banyak rak yang diperlukan. Itulah hal yang belum diketahui.',
+               'Banyak buku di setiap rak sudah tertulis di soal, yaitu 6 buku, jadi bukan itu yang dicari. Cari kalimat yang diawali kata Tentukan.',
+               'Jumlah semua buku sudah tertulis di soal, yaitu 42 buku, jadi bukan itu yang dicari. Cari kalimat yang diawali kata Tentukan.'],
+      rencana: ['Betul. Tiap rak berisi 6 buku, jadi kita mencari bilangan yang dikalikan 6 hasilnya 42. Inilah kebalikan dari perkalian.',
+                'Menjumlahkan 42 dan 6 menghasilkan 48, padahal jumlah buku tidak bertambah. Pikirkan hubungan antara banyak rak, isi tiap rak, dan jumlah semua buku.',
+                'Mengalikan 42 dengan 6 menghasilkan 252, jauh lebih banyak dari buku yang ada. Pikirkan hubungan antara banyak rak, isi tiap rak, dan jumlah semua buku.'] },
+    { pahami: ['Betul. Soal meminta banyak kertas yang diterima setiap kelompok.',
+               'Seluruh kertas sudah tertulis di soal, yaitu 96 lembar, jadi bukan itu yang dicari. Cari kalimat yang diawali kata Tentukan.',
+               'Banyak kelompok sudah tertulis di soal, yaitu 3 kelompok, jadi bukan itu yang dicari. Cari kalimat yang diawali kata Tentukan.'],
+      rencana: ['Betul. Bilangan 96 cukup besar, jadi pembagian bersusun membantu membagi puluhan lebih dulu, lalu satuan, dengan urutan bagi, kalikan, kurangkan, turunkan.',
+                'Menjumlahkan 96 dan 3 menghasilkan 99, padahal kertas tidak bertambah. Pikirkan lagi apa yang dilakukan ibu guru pada 96 lembar kertas itu.',
+                'Mengalikan 96 dengan 3 menghasilkan 288, jauh lebih banyak dari kertas yang tersedia. Pikirkan lagi apa yang dilakukan ibu guru pada 96 lembar kertas itu.'] }
+  ];
+  // tip muncul saat jawaban angka salah, ok muncul saat langkah benar
+  var LANGKAH_INFO = [
+    [ { tip: 'Bagikan 8 pensil satu per satu ke 2 kelompok secara bergiliran, lalu hitung pensil di satu kelompok.', ok: 'Benar! 8 : 2 = 4, jadi tiap kelompok mendapat 4 pensil.' },
+      { tip: 'Kalikan banyak pensil tiap kelompok dengan banyak kelompok. Hasilnya harus sama dengan semua pensil, yaitu 8.', ok: 'Cocok! 4 × 2 = 8 sama dengan semua pensil, jadi jawabanmu benar.' } ],
+    [ { tip: 'Cari bilangan yang jika dikalikan 6 hasilnya 42. Ingat tabel perkalian 6 dan lihat kalimat perkalian di layar.', ok: 'Benar! 6 × 7 = 42, jadi 42 : 6 = 7 rak.' },
+      { tip: 'Kalikan banyak rak dengan banyak buku tiap rak. Hasilnya harus sama dengan semua buku, yaitu 42.', ok: 'Cocok! 7 × 6 = 42 sama dengan semua buku, jadi jawabanmu benar.' } ],
+    [ { tip: '9 puluhan dibagi ke 3 kelompok. Cari bilangan yang jika dikalikan 3 hasilnya 9.', ok: 'Benar! 9 : 3 = 3, tulis 3 pada hasil bagi.' },
+      { tip: 'Kalikan hasil bagi dengan pembagi, yaitu 3 × 3.', ok: 'Benar! 3 × 3 = 9, tulis 9 di bawah angka 9.' },
+      { tip: 'Kurangkan yang dibagi dengan hasil kali tadi, yaitu 9 − 9.', ok: 'Benar! 9 − 9 = 0, jadi tidak ada sisa puluhan.' },
+      { tip: 'Turunkan angka 6, sehingga bilangan yang dibagi sekarang 6. Lalu hitung 6 : 3.', ok: 'Benar! 6 : 3 = 2, tulis 2 di samping angka 3.' },
+      { tip: 'Gabungkan hasil bagi dari puluhan dan dari satuan menjadi satu bilangan dua angka.', ok: 'Benar! 96 : 3 = 32, jadi tiap kelompok menerima 32 lembar.' },
+      { tip: 'Kalikan hasil bagi dengan 3. Kalikan puluhannya dan satuannya secara terpisah, lalu jumlahkan.', ok: 'Cocok! 32 × 3 = 96 sama dengan semua kertas, jadi jawabanmu benar.' } ]
+  ];
+  LEVEL.forEach(function (L, i) {
+    L.pbl.penjelasan = PENJELASAN[i];
+    L.langkah.forEach(function (l, k) { l.tip = LANGKAH_INFO[i][k].tip; l.ok = LANGKAH_INFO[i][k].ok; });
+  });
   var REFLEKSI = [
     'Pengelompokan sama banyak',
-    'Pembagian berulang',
+    'Kebalikan perkalian',
     'Pembagian bersusun'
   ];
 
   var ALASAN = {
     'Pengelompokan sama banyak': ['Mudah dibayangkan seperti membagi benda sungguhan', 'Cocok untuk bilangan yang kecil', 'Aku bisa melihat setiap kelompoknya', 'Aku bisa membaginya pakai stik atau gambar'],
-    'Pembagian berulang': ['Aku bisa menghitung selangkah demi selangkah', 'Aku bisa tahu sudah berapa kali mengurangi', 'Aku tidak perlu hafal perkalian', 'Aku bisa berhenti saat bilangannya habis'],
+    'Kebalikan perkalian': ['Aku bisa memakai perkalian yang sudah kuhafal', 'Aku bisa memeriksa hasil dengan perkalian', 'Aku tahu pembagian dan perkalian saling berkaitan', 'Aku bisa menebak jawabannya lebih cepat'],
     'Pembagian bersusun': ['Cocok untuk bilangan yang besar', 'Langkahnya rapi dan berurutan', 'Aku tidak mudah salah menghitung', 'Puluhan dan satuan dibagi terpisah jadi lebih ringan']
   };
 
@@ -1136,10 +1175,10 @@ var ASET={"guru": "data:image/webp;base64,UklGRrAvAQBXRUJQVlA4WAoAAAAQAAAAfwIAvw
     li.forEach(function (x) { x.classList.remove('on'); });
     kk.forEach(function (x) { x.classList.remove('on'); });
     var pa = $('#peraga-a'); pa.innerHTML = '';
-    var W = [['#ffb3c1', '#e11d48'], ['#a7f3d0', '#059669']];
-    for (var g = 0; g < 2; g++) {
+    var W = [['#ffb3c1', '#e11d48'], ['#a7f3d0', '#059669'], ['#bfdbfe', '#2563eb']];
+    for (var g = 0; g < 3; g++) {
       var grp = document.createElement('div'); grp.className = 'grup';
-      for (var k = 0; k < 4; k++) grp.appendChild(titik(0, W[g][0], W[g][1], 0.2 + (g * 4 + k) * 0.05));
+      for (var k = 0; k < 5; k++) grp.appendChild(titik(0, W[g][0], W[g][1], 0.2 + (g * 5 + k) * 0.05));
       pa.appendChild(grp);
     }
     li.forEach(function (x, i) { tunda(function () { x.classList.add('on'); suara.pop(); }, 700 + i * 700); });
@@ -1248,22 +1287,22 @@ var ASET={"guru": "data:image/webp;base64,UklGRrAvAQBXRUJQVlA4WAoAAAAQAAAAfwIAvw
     urut.forEach(function (idx, k) {
       var bt = document.createElement('button'); bt.type = 'button'; bt.className = 'opsi'; bt.textContent = d.opsi[idx];
       bt.style.animationDelay = (k * 0.1) + 's';
-      bt.addEventListener('click', function () { pilihOpsi(fase, bt, idx === 0); });
+      bt.addEventListener('click', function () { pilihOpsi(fase, bt, idx); });
       p.appendChild(bt);
     });
     v.appendChild(p);
   }
-  function pilihOpsi(fase, bt, benar) {
+  function pilihOpsi(fase, bt, idx) {
     if (!gs || gs.fase !== fase || bt.disabled) return;
-    var L = LEVEL[gs.n];
+    var L = LEVEL[gs.n], d = L.pbl[fase], pj = L.pbl.penjelasan[fase], benar = idx === 0;
     if (!benar) {
-      bt.classList.add('salah'); bt.disabled = true; suara.salah(); pose('semangat');
-      bicaraGuru(fase === 'pahami' ? 'Hampir! Baca soalnya sekali lagi dengan teliti ya.' : 'Belum cocok. Coba pikirkan cara yang pas untuk masalah ini.', 5000);
+      bt.classList.add('salah'); bt.disabled = true; pose('semangat');
+      umpan('pilih-salah', 0, '<b>Mengapa belum tepat?</b> ' + pj[idx] + '<br><small>Ayo baca soal sekali lagi, lalu pilih jawaban yang lain.</small>');
       return;
     }
-    bt.classList.add('benar'); suara.langkah(); pose('jempol');
+    bt.classList.add('benar'); pose('jempol');
     $$('.opsi', $('#visual')).forEach(function (o) { o.disabled = true; });
-    tunda(function () {
+    gs.lanjutPilih = function () {
       pose('tunjuk');
       if (fase === 'pahami') {
         var c = $('#catatan');
@@ -1275,7 +1314,8 @@ var ASET={"guru": "data:image/webp;base64,UklGRrAvAQBXRUJQVlA4WAoAAAAQAAAAfwIAvw
         $('#balon-petunjuk').classList.remove('on');
         bangunVisual(L); renderLangkah();
       }
-    }, 850);
+    };
+    umpan('pilih-benar', 0, '<b>Mengapa jawabanmu benar?</b> ' + pj[0].replace(/^Betul\.\s*/, ''));
   }
 
   /* --- penunjuk tahap di bagian atas papan tulis --- */
@@ -1375,31 +1415,19 @@ var ASET={"guru": "data:image/webp;base64,UklGRrAvAQBXRUJQVlA4WAoAAAAQAAAAfwIAvw
     });
   }
 
-  /* --- level 2: buku, tombol Ambil 5 --- */
+  /* --- level 2: buku, kebalikan perkalian --- */
   function bangunBuku(v) {
-    var atas = document.createElement('div'); atas.className = 'v2-atas';
-    var rak = document.createElement('div'); rak.className = 'rakbuku';
-    for (var i = 0; i < 20; i++) {
-      var b = new Image(); b.src = ASET['buku']; b.className = 'buku'; b.alt = 'buku'; b.style.animation = 'pop .5s ' + (i * 0.03) + 's cubic-bezier(.3,1.7,.5,1) backwards';
-      rak.appendChild(b);
+    var d = document.createElement('div'); d.className = 'v3';
+    function kolom(angka, ket) {
+      var k = document.createElement('div'); k.className = 'kiri';
+      var im = new Image(); im.src = ASET['buku']; im.alt = 'buku'; k.appendChild(im);
+      k.insertAdjacentHTML('beforeend', '<div class="bil">' + angka + '</div><small>' + ket + '</small>');
+      return k;
     }
-    var panel = document.createElement('div'); panel.className = 'panel-ambil';
-    panel.innerHTML = '<button type="button" class="tombol kuning" id="btn-ambil">Ambil 5</button><div id="hitung">Diambil: <b id="jml">0</b> kali</div>';
-    atas.appendChild(rak); atas.appendChild(panel);
-    var raks = document.createElement('div'); raks.className = 'raks'; raks.id = 'raks';
-    v.appendChild(atas); v.appendChild(raks);
-    var diambil = 0;
-    $('#btn-ambil').addEventListener('click', function () {
-      var sisa = $$('.buku:not(.ambil)', rak);
-      if (!sisa.length) return;
-      sisa.slice(0, 5).forEach(function (b) { b.classList.add('ambil'); });
-      diambil++; $('#jml').textContent = diambil; suara.pop();
-      var r = document.createElement('div'); r.className = 'rak';
-      r.innerHTML = '<span class="nr">Rak ' + diambil + '</span>';
-      for (var k = 0; k < 5; k++) { var im = new Image(); im.src = ASET['buku']; im.alt = ''; r.appendChild(im); }
-      raks.appendChild(r);
-      if (sisa.length <= 5) { this.disabled = true; }
-    });
+    var titik = document.createElement('div'); titik.style.cssText = 'font-size:54px;font-weight:700;color:#dc2626'; titik.textContent = ':';
+    d.appendChild(kolom(42, 'buku')); d.appendChild(titik); d.appendChild(kolom(6, 'buku tiap rak'));
+    v.appendChild(d);
+    var k = document.createElement('div'); k.className = 'kalimat'; k.id = 'kalimat'; k.innerHTML = '6 × ... = 42'; v.appendChild(k);
   }
 
   /* --- level 3: krayon dan enam kotak --- */
@@ -1485,7 +1513,7 @@ var ASET={"guru": "data:image/webp;base64,UklGRrAvAQBXRUJQVlA4WAoAAAAQAAAAfwIAvw
       if (gs.langkah < L.langkah.length - 1) {
         // langkah benar, lanjut ke langkah berikutnya
         if (l.baris) isiBaris(gs.langkah, 'selesai');
-        gs.langkah++; suara.langkah(); renderLangkah();
+        gs.langkah++; suara.langkah(); renderLangkah(); if (l.ok) bicaraGuru(l.ok, 6000);
         var kk = $('#kartu'); kk.animate && kk.animate([{ transform: 'scale(1.03)' }, { transform: 'none' }], 250);
       } else {
         if (l.baris) isiBaris(gs.langkah, 'selesai');
@@ -1495,7 +1523,7 @@ var ASET={"guru": "data:image/webp;base64,UklGRrAvAQBXRUJQVlA4WAoAAAAQAAAAfwIAvw
         tunda(function () { umpan('benar', bintang); }, 500);
       }
     } else {
-      gs.salah++;
+      var isiSalah = gs.masukan; gs.salah++;
       $$('#kesempatan i').forEach(function (el, i) { el.classList.toggle('hilang', i >= 3 - gs.salah); });
       var kt = $('#kartu'); kt.classList.remove('guncang'); void kt.offsetWidth; kt.classList.add('guncang');
       suara.salah();
@@ -1504,7 +1532,7 @@ var ASET={"guru": "data:image/webp;base64,UklGRrAvAQBXRUJQVlA4WAoAAAAQAAAAfwIAvw
         gs.selesai = true;
         progres.selesai[gs.n] = true; simpan();
         tunda(function () { umpan('habis', 0); }, 450);
-      } else tunda(function () { umpan('salah', 3 - gs.salah); }, 350);
+      } else tunda(function () { umpan('salah', 3 - gs.salah, '<b>Jawabanmu ' + isiSalah + ' belum tepat.</b> ' + (l.tip || L.petunjuk)); }, 350);
       gs.masukan = ''; tampilMasukan();
     }
   }
@@ -1517,7 +1545,7 @@ var ASET={"guru": "data:image/webp;base64,UklGRrAvAQBXRUJQVlA4WAoAAAAQAAAAfwIAvw
     if (!cepat && layarKini === 'soal') ukuranGuru('soal');
   }
   var umpanJenis = '';
-  function umpan(jenis, info) {
+  function umpan(jenis, info, teks) {
     umpanJenis = jenis;
     var L = LEVEL[gs.n], bal = $('#balon-umpan'), pap = $('#papan-umpan');
     var bt = $('#bintang-umpan'), tu = $('#teks-umpan'), btn = $('#btn-umpan');
@@ -1528,6 +1556,7 @@ var ASET={"guru": "data:image/webp;base64,UklGRrAvAQBXRUJQVlA4WAoAAAAQAAAAfwIAvw
     bal.classList.remove('on'); pap.classList.remove('on', 'guncang');
     var tb = $('.teks', bal);
     bt.innerHTML = '';
+    tu.style.fontSize = '';
     if (jenis === 'benar') {
       pose('jempol'); tb.textContent = 'Hebat!';
       for (var i = 0; i < 3; i++) {
@@ -1542,10 +1571,19 @@ var ASET={"guru": "data:image/webp;base64,UklGRrAvAQBXRUJQVlA4WAoAAAAQAAAAfwIAvw
     } else if (jenis === 'salah') {
       pose('semangat'); tb.textContent = 'Belum tepat, ayo coba lagi!';
       bt.innerHTML = '';
-      tu.innerHTML = '<b>Petunjuk:</b> ' + L.petunjuk + '<br><small>Kesempatan tersisa: ' + info + '</small>';
+      tu.innerHTML = (teks || ('<b>Petunjuk:</b> ' + L.petunjuk)) + '<br><small>Kesempatan tersisa: ' + info + '</small>';
       btn.textContent = 'Coba lagi ▸';
       gerak('goyang', 2400);
       tunda(function () { pap.classList.add('guncang'); }, 450);
+    } else if (jenis === 'pilih-salah') {
+      pose('semangat'); tb.textContent = 'Belum tepat, ayo pikirkan lagi!';
+      tu.innerHTML = teks; btn.textContent = 'Coba lagi ▸';
+      suara.salah(); gerak('goyang', 2400);
+      tunda(function () { pap.classList.add('guncang'); }, 450);
+    } else if (jenis === 'pilih-benar') {
+      pose('jempol'); tb.textContent = 'Tepat sekali!';
+      tu.innerHTML = teks; btn.textContent = 'Lanjut ▸';
+      suara.langkah(); gerak('lompat', 750);
     } else {
       pose('semangat'); tb.textContent = 'Tidak apa-apa, ayo kita bahas bersama!';
       for (var q = 0; q < 3; q++) { var s2 = document.createElement('span'); s2.textContent = '★'; bt.appendChild(s2); }
@@ -1553,12 +1591,17 @@ var ASET={"guru": "data:image/webp;base64,UklGRrAvAQBXRUJQVlA4WAoAAAAQAAAAfwIAvw
       btn.textContent = 'Lanjut ▸';
       gerak('goyang', 2400);
     }
+    var panjang = tu.textContent.length;
+    if (panjang > 230) tu.style.fontSize = '22px'; else if (panjang > 150) tu.style.fontSize = '24px';
     tunda(function () { bal.classList.add('on'); pap.classList.add('on'); }, 250);
   }
   $('#btn-umpan').addEventListener('click', function () {
     suara.klik();
-    if (umpanJenis === 'salah') {
+    if (umpanJenis === 'salah' || umpanJenis === 'pilih-salah') {
       tutupUmpan(); pose('tunjuk'); ukuranGuru('soal'); return;
+    }
+    if (umpanJenis === 'pilih-benar') {
+      tutupUmpan(); ukuranGuru('soal'); if (gs && gs.lanjutPilih) { var f = gs.lanjutPilih; gs.lanjutPilih = null; f(); } return;
     }
     // benar atau habis: lanjut
     var n = gs.n;
